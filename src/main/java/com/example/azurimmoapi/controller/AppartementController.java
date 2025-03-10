@@ -15,33 +15,33 @@ public class AppartementController {
     @Autowired
     private AppartementService appartementService;
 
-    @GetMapping("/public/appartements")
+    @GetMapping("/appartements")
     public Iterable<Appartement> getAllAppartements() {
         return appartementService.getAppartements();
     }
 
-    @GetMapping("/public/appartement/ville/{ville}")
+    @GetMapping("/appartement/ville/{ville}")
     public List<Appartement> findByVille(@PathVariable String ville) {
         return appartementService.getAppartementsByVille(ville);
     }
 
-    @GetMapping("/public/appartement/batiment/{batimentId}")
+    @GetMapping("/appartement/batiment/{batimentId}")
     public List<Appartement> findByBatimentId(@PathVariable long batimentId) {
         return appartementService.getAppartementsParBatiment(batimentId);
     }
 
-    @GetMapping("/public/appartement/{id}")
+    @GetMapping("/appartement/{id}")
     public Appartement getAppartement(@PathVariable final Long id) {
         Optional<Appartement> appartement = appartementService.getAppartementById(id);
         return appartement.orElse(null);
     }
 
-    @PostMapping("/public/appartement")
+    @PostMapping("/appartement")
     public Appartement addAppartement(@RequestBody Appartement appartement) {
         return appartementService.saveAppartement(appartement);
     }
 
-    @PutMapping("/public/appartement/{id}")
+    @PutMapping("/appartement/{id}")
     public Appartement updateAppartement(@PathVariable("id") final Long id, @RequestBody Appartement appartement) {
         Optional<Appartement> a = appartementService.getAppartementById(id);
         if(a.isPresent()) {
@@ -79,7 +79,7 @@ public class AppartementController {
         }
     }
 
-    @DeleteMapping("/public/appartement/{id}")
+    @DeleteMapping("/appartement/{id}")
     public void deleteAppartement(@PathVariable("id") final Long id) {
         appartementService.deleteAppartement(id);
     }

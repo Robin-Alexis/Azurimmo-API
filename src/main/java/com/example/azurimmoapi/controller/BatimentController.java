@@ -17,23 +17,23 @@ public class BatimentController {
     @Autowired
     private BatimentService batimentService;
 
-    @GetMapping("/public/batiments")
+    @GetMapping("/batiments")
     public Iterable<Batiment> getAllBatiments() {
         return batimentService.getBatiments();
     }
 
-    @GetMapping("/public/batiment/{id}")
+    @GetMapping("/batiment/{id}")
     public Batiment getBatiment(@PathVariable final Long id) {
         Optional<Batiment> batiment = batimentService.getBatimentById(id);
         return batiment.orElse(null);
     }
 
-    @PostMapping("/public/batiment")
+    @PostMapping("/batiment")
     public Batiment addBatiment(@RequestBody Batiment batiment) {
         return batimentService.saveBatiment(batiment);
     }
 
-   @PutMapping("/public/batiment/{id}")
+   @PutMapping("/batiment/{id}")
     public Batiment updateBatiment(@PathVariable("id") final Long id, @RequestBody Batiment batiment) {
         Optional<Batiment> b = batimentService.getBatimentById(id);
         if (b.isPresent()) {
@@ -56,7 +56,7 @@ public class BatimentController {
         }
    }
 
-   @DeleteMapping("/public/batiment/{id}")
+   @DeleteMapping("/batiment/{id}")
     public void deleteBatiment(@PathVariable("id") final Long id) {
 
         batimentService.deleteBatiment(id);
