@@ -39,9 +39,9 @@ public class LocataireController {
         if (l.isPresent()) {
             Locataire currentLocataire = l.get();
 
-            String adresse = locataire.getAdresse();
-            if(adresse != null) {
-                currentLocataire.setAdresse(adresse);
+            String nom = locataire.getNom();
+            if(nom != null) {
+                currentLocataire.setNom(nom);
             }
 
             String prenom = locataire.getPrenom();
