@@ -14,7 +14,7 @@ public class Locataire {
     private Long id;
 
     @Column(name="nom")
-    private String adresse;
+    private String nom;
 
     @Column(name="prenom")
     private String prenom;
